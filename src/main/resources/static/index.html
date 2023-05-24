@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #e9ecef;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+        .logo {
+            margin-left: 24px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+        }
+        .search input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            width: 500px;
+            outline:none;
+            display:inline;
+        }
+        .search button {
+            background-color: transparent;
+            border-radius: 40%;
+            border-color:transparent;
+            cursor: pointer;
+            outline:none;
+            display:inline;
+        }
+        .submit-btn {
+            margin-top: 3px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            margin-right: 20px;
+        }
+        nav li:last-child {
+            margin-right: 0;
+        }
+        nav a {
+            color: #333;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .hero {
+            background-image: url('https://ifh.cc/g/PpqNr8.png');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .hero h1 {
+            font-size: 64px;
+            margin: 0;
+            color: #fff;
+            text-shadow: 2px 2px #333;
+        }
+        .hero p {
+            font-size: 24px;
+            margin: 20px 0 0 0;
+            color: #fff;
+            text-shadow: 2px 2px #333;
+        }
+        .cta {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+        .cta h2 {
+            font-size: 35px;
+            margin: 0;
+            color: #333;
+        }
+        .cta button {
+            background-color: #adb5bd;
+            color: #fff;
+            border-radius: 4px;
+            border-color: transparent;
+            /* padding: 20px 30px; */
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 24px;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            padding: 6px 12px;
+            gap: 10px;
+            width: 106px;
+            height: 48px;
+            align-items: center;
+            text-align: center;
+        }
+        .cta button:hover {
+            background-color: #fff;
+            color: #333;
+        }
+        /* Footer styles */
+        footer {
+            background-color: #e9ecef;
+            padding: 50px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            width: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        .footer-col:last-child {
+            padding-right: 0;
+        }
+
+        .footer-col h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: #6c757d;
+        }
+
+        .footer-col ul li a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .footer-col ul li a:hover {
+            color: #1a1a1a;
+        }
+
+        .bottom-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .bottom-footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 1200px) {
+            .search input[type="text"] {
+                width: 400px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header {
+                flex-wrap: wrap;
+            }
+            .logo {
+                margin: 10px 0 0 0;
+            }
+            .search {
+                margin: 0;
+            }
+            nav ul {
+                width: 100%;
+                justify-content: center;
+                margin: 10px 0;
+            }
+            .search input[type="text"] {
+                width: 300px;
+            }
+            .footer-col {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search input[type="text"] {
+                width: 200px;
+            }
+            .footer-col {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .search input[type="text"] {
+                width: 150px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo" onClick="location.href='/'"><img src="https://ifh.cc/g/vq9s6T.png" alt="My Website Logo" width="84"height="40"></div>
+    <div class="search">
+        <input type="text" placeholder="     검색하세요">
+        <button><img class="submit-btn" src="submit.svg" alt="Search" width="25" height="30"></button>
+    </div>
+
+    <nav>
+        <ul>
+            <<li><a href="main">영어 교육</a></li>
+            <li><a href="main">코딩 교육</a></li>
+            <li><a href="login">로그인</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="hero">
+    <h1>누구나 배울 수 있는, AIedu</h1>
+    <p>gpt와 함께 영어와 코딩을 배워보세요!</p>
+</section>
+<section class="cta">
+    <h2>GPT와 공부하고 싶다면?</h2>
+    <button onClick="location.href='login'">회원가입</button>
+    <button onClick="location.href='login'">로그인</button>
+</section>
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>Our Mission</h3>
+            <p>We are committed to providing high-quality and accessible education to everyone, regardless of their background or circumstances.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i>용산구 청파로 숙명여자대학교</li>
+                <li><i class="fas fa-phone"></i>(010) 1234 5678</li>
+                <li><i class="fas fa-envelope"></i>aiedu.smsw@gmail.com</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <p>© 2023 AIedu. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

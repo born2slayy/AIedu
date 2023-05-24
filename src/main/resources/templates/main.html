@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #e9ecef;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+        .logo {
+            margin-left: 24px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+        }
+        .search input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            width: 500px;
+            outline:none;
+            display:inline;
+        }
+        .search button {
+            background-color: transparent;
+            border-radius: 40%;
+            border-color:transparent;
+            cursor: pointer;
+            outline:none;
+            display:inline;
+        }
+        .submit-btn {
+            margin-top: 3px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            margin-right: 20px;
+        }
+        nav li:last-child {
+            margin-right: 0;
+        }
+        nav a {
+            color: #333;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .image-container:hover img {
+            filter: blur(5px);
+        }
+
+        .button-container {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .image-container:hover .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-container button {
+            padding: 10px 40px;
+            margin: 10px 0;
+            font-size: 25px;
+            border: none;
+            border-radius: 40px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #e9ecef;
+            padding: 50px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            width: calc(33.33% - 20px);
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        .footer-col:last-child {
+            padding-right: 0;
+        }
+
+        .footer-col h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: #6c757d;
+        }
+
+        .footer-col ul li a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .footer-col ul li a:hover {
+            color: #1a1a1a;
+        }
+
+        .bottom-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .bottom-footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .image-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .col {
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 0px 10px;
+        }
+
+        .col img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        @media screen and (max-width: 991px) {
+            .search input[type="text"] {
+                width: 300px;
+            }
+            .footer-col {
+                width: 100%;
+            }
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+            .col {
+                flex: 0 0 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            header {
+                flex-wrap: wrap;
+            }
+            .search {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .search input[type="text"] {
+                width: calc(100% - 60px);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo" onClick="location.href='/'"><img src="https://ifh.cc/g/vq9s6T.png" alt="My Website Logo" width="84"height="40"></div>
+    <div class="search">
+        <input type="text" placeholder="     검색하세요">
+        <button><img class="submit-btn" src="submit.svg" alt="Search" width="25" height="30"></button>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="main">영어 교육</a></li>
+            <li><a href="main">코딩 교육</a></li>
+            <li><a href="login">로그인</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="image-buttons">
+    <div class="container">
+        <p>&nbsp;</p>
+        <h2 style="font-weight: bold;">영어</h2>
+        <div class="row">
+            <div class="col">
+                <a href="#" class="image-link">
+                    <div class="image-container">
+                        <img src="/english-1.jpg" alt="...">
+                        <div class="button-container">
+                            <button onClick="location.href='english/grammar/basic'"> 문법 </button>
+                            <button> 어휘 </button>
+                            <button> 회화 </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="image-link">
+                    <div class="image-container">
+                        <img src="/english-2.jpg" alt="...">
+                        <div class="button-container">
+                            <button> 문법 </button>
+                            <button> 어휘 </button>
+                            <button> 회화 </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="image-link">
+                    <div class="image-container">
+                        <img src="/english-3.jpg" alt="...">
+                        <div class="button-container">
+                            <button> 문법 </button>
+                            <button> 어휘 </button>
+                            <button> 회화 </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <h2 style="font-weight: bold;">코딩</h2>
+        <div class="row">
+            <div class="col">
+                <a href="#" class="image-link">
+                    <div class="image-container">
+                        <img src="/coding-1.jpg" alt="...">
+                        <div class="button-container">
+                            <button onClick="location.href='coding/python'"> 기초 </button>
+                            <button onClick="location.href='coding/python'"> 중급 </button>
+                            <button onClick="location.href='coding/python'"> 고급 </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="image-link">
+                    <div class="image-container">
+                        <img src="/coding-2.jpg" alt="...">
+                        <div class="button-container">
+                            <button> 기초 </button>
+                            <button> 중급 </button>
+                            <button> 고급 </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="image-link">
+                    <div class="image-container">
+                        <img src="/coding-3.jpg" alt="...">
+                        <div class="button-container">
+                            <button> 기초 </button>
+                            <button> 중급 </button>
+                            <button> 고급 </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>Our Mission</h3>
+            <p>We are committed to providing high-quality and accessible education to everyone, regardless of their background or circumstances.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i>용산구 청파로 숙명여자대학교</li>
+                <li><i class="fas fa-phone"></i>(010) 1234 5678</li>
+                <li><i class="fas fa-envelope"></i>aiedu.smsw@gmail.com</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <p>© 2023 AIedu. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

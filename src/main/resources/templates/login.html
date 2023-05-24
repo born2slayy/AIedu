@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Website</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #e9ecef;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+    }
+    .logo {
+      margin-left: 24px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .search {
+      display: flex;
+      align-items: center;
+    }
+    .search input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      margin-right: 10px;
+      font-size: 16px;
+      width: 500px;
+      outline:none;
+      display:inline;
+    }
+    .search button {
+      background-color: transparent;
+      border-radius: 40%;
+      border-color:transparent;
+      cursor: pointer;
+      outline:none;
+      display:inline;
+    }
+    .submit-btn {
+      margin-top: 3px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      margin-right: 20px;
+    }
+    nav li:last-child {
+      margin-right: 0;
+    }
+    nav a {
+      color: #333;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    /* Login and Signup styles */
+    .login-signup-section {
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      height: 100vh;
+      padding-top:20px;
+    }
+
+    .login-signup-form {
+      background-color: #ffffff;
+      padding: 40px;
+      width:400px;
+      box-shadow:0px 0px 15px rgba(0,0,0,0.1);
+      border-radius:5px;
+    }
+
+    .login-signup-form h2 {
+      margin:0 0 30px 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .login-signup-form input {
+      display:block;
+      width:95%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 18px;
+      border-radius:5px;
+      border: 1px solid #ccc;
+    }
+
+    .login-signup-form button[type="submit"] {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      font-size: 18px;
+      border:none;
+      border-radius: 5px;
+      cursor:pointer;
+      background-color:#333;
+      color:#fff;
+    }
+
+    .kakao-signin-btn {
+      display:block;
+      text-align:center;
+      background-color:#FFE812;
+      padding:10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      text-decoration:none;
+      color:#000000;
+    }
+    /* Footer styles */
+    footer {
+      background-color: #e9ecef;
+      padding: 50px 0;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-col {
+      width: calc(33.33% - 20px);
+      margin-bottom: 20px;
+      padding-right: 20px;
+    }
+
+    .footer-col:last-child {
+      padding-right: 0;
+    }
+
+    .footer-col h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .footer-col ul li i {
+      margin-right: 10px;
+      color: #6c757d;
+    }
+
+    .footer-col ul li a {
+      color: #6c757d;
+      text-decoration: none;
+    }
+
+    .footer-col ul li a:hover {
+      color: #1a1a1a;
+    }
+
+    .bottom-footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .bottom-footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 1200px) {
+      .footer-container {
+        max-width: 990px;
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      nav ul {
+        display: none;
+      }
+      .search input[type="text"] {
+        width: 300px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-wrap: wrap;
+      }
+      .logo {
+        margin-left: 0;
+      }
+      .search {
+        order: 1;
+      }
+      .login-signup-form {
+        width: 90%;
+      }
+      .search input[type="text"] {
+        width: 100%;
+      }
+      .footer-col {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .footer-col {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+</head>
+<body>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+  window.Kakao.init('e83f97ce1f2029a41340c87001b14aa3');
+  //카카오로그인
+  function kakaoLogin() {
+    window.Kakao.Auth.login({
+      scope: 'profile_nickname, profile_image',
+      success: function (authObj) {
+        window.Kakao.API.request({
+          url: '/v2/user/me',
+          success: res => {
+            const kakao_account = res.kakao_account;
+            console.log(kakao_account);
+          }
+        });
+      }
+    })
+  }
+
+</script>
+<header>
+  <div class="logo" onClick="location.href='/'"><img src="/aiedu-logo.png" alt="My Website Logo" width="84"height="40"></div>
+  <div class="search">
+    <input type="text" placeholder="     검색하세요">
+    <button><img class="submit-btn" src="/submit.svg" alt="Search" width="25" height="30"></button>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="main">영어 교육</a></li>
+      <li><a href="main">코딩 교육</a></li>
+      <li><a href="login">로그인</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="login-signup-section">
+  <div class="login-signup-form">
+    <h2>Login / Signup</h2>
+    <a href="javascript:kakaoLogin();" class="kakao-signin-btn">카카오 로그인</a>
+    <form>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Our Mission</h3>
+      <p>We are committed to providing high-quality and accessible education to everyone, regardless of their background or circumstances.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i>용산구 청파로 숙명여자대학교</li>
+        <li><i class="fas fa-phone"></i>(010) 1234 5678</li>
+        <li><i class="fas fa-envelope"></i>aiedu.smsw@gmail.com</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i>Twitter</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-footer">
+    <p>© 2023 AIedu. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
